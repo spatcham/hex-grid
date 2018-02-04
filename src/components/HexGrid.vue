@@ -51,12 +51,15 @@ export default {
   display:inline-block;
 }
 .rowOdd {
+  height: 132px;
   display:inline-block;
 }
 
 .rowEven {
-  display:relative;
-  left: 80px;
+  height: 132px;
+  padding-left: 79px;
+  display:inline-block;
+  right: 80px;
 }
 
 .tileOdd {
