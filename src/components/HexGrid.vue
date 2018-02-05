@@ -6,9 +6,9 @@
         <br>
         <span>Height</span>
         <input type="number" v-model=height>
-        <input type="submit" value="Submit" v-on:click="getAsInteger()" :disabled="width == 0 || height == 0" >
+        <input type="submit" value="Submit" v-on:click="getAsInteger()" :disabled="width == 0 || width > 8 || height == 0" >
     </div>
-    <span v-if="width > 0">Click "Submit"!</span>
+    <span v-if="width > 0 && height > 0">Click "Submit"!</span>
     <div class="hexagonGrid">
       <div id="row" v-for="i in desiredHeight" :key="i">
         <div class="rowOdd" v-if="i % 2 == 1">
@@ -47,31 +47,34 @@ export default {
 </script>
 
 <style>
+
 .row{
   display:inline-block;
 }
 .rowOdd {
-  height: 132px;
-  display:inline-block;
+  white-space: nowrap;
+  height: 135px;
 }
 
 .rowEven {
-  height: 132px;
+  height: 135px;
   padding-left: 79px;
-  display:inline-block;
   right: 80px;
+  white-space: nowrap;
 }
 
 .tileOdd {
   padding: 4px;
-  position:relative;
-  float:left;
+  display:inline-flex;
+  /* position:relative; */
+  /* float:left; */
 }
 
 .tileEven {
   padding: 4px;
-  position:relative;
-  float:left;
+  display:inline-block;
+  /* position:relative; */
+  /* float:left; */
 }
 
 </style>
