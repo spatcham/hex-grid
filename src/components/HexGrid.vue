@@ -6,7 +6,7 @@
         <br>
         <span>Height</span>
         <input type="number" v-model=height>
-        <input type="submit" value="Submit" v-on:click="getAsInteger()" :disabled="width == 0 || width > 8 || height == 0" >
+        <input type="submit" value="Submit" v-on:click="getAsInteger()" :disabled="width == 0 || height == 0" >
     </div>
     <span v-if="width > 0 && height > 0">Click "Submit"!</span>
     <div class="hexagonGrid">
