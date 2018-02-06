@@ -48,8 +48,12 @@ export default {
   border-top: 43.30px solid #5fdf51;
 }
 
-.hexagon:hover {
-  background-color: #5fdfda
+.hexagon:hover{
+  background-color: #fbff1f
 }
+
+/* .hexagon:hover, .hexagon:hover:before, .hexagon:hover:after {
+  background-color: #5fdfda
+} */
 
 </style>

@@ -6,16 +6,17 @@
         <br>
         <span>Height</span>
         <input type="number" v-model=height>
-        <input type="submit" value="Submit" v-on:click="getAsInteger()" :disabled="width == 0 || height == 0" >
+        <input type="submit" value="Create Grid" v-on:click="getAsInteger()" :disabled="width == 0 || height == 0" >
     </div>
-    <span v-if="width > 0 && height > 0">Click "Submit"!</span>
-    <div class="hexagonGrid">
+    <span v-if="width > 0 && height > 0">Valid Grid!</span>
+    <span v-if="width <= 0 || height <= 0" class="red-text">Invalid</span>
+    <div class="hex-grid">
       <div id="row" v-for="i in desiredHeight" :key="i">
-        <div class="rowOdd" v-if="i % 2 == 1">
-            <hex-tile class="tileOdd" v-for="n in desiredWidth" :key="i+n"></hex-tile>
+        <div class="row-odd" v-if="i % 2 == 1">
+            <hex-tile class="tile-odd" v-for="n in desiredWidth" :key="i+n"></hex-tile>
         </div>
-        <div class="rowEven" v-if="i % 2 == 0">
-            <hex-tile class="tileEven" v-for="m in desiredWidth" :key="i+m"></hex-tile>
+        <div class="row-even" v-if="i % 2 == 0">
+            <hex-tile class="tile-even" v-for="m in desiredWidth" :key="i+m"></hex-tile>
         </div>
       </div>
     </div>
@@ -48,29 +49,34 @@ export default {
 
 <style>
 
+.red-text{
+  color: red;
+  font-weight:bold;
+}
+
 .row{
   display:inline-block;
 }
-.rowOdd {
+.row-odd {
   white-space: nowrap;
   height: 135px;
 }
 
-.rowEven {
+.row-even {
   height: 135px;
   padding-left: 79px;
   right: 80px;
   white-space: nowrap;
 }
 
-.tileOdd {
+.tile-odd {
   padding: 4px;
   display:inline-flex;
   /* position:relative; */
   /* float:left; */
 }
 
-.tileEven {
+.tile-even {
   padding: 4px;
   display:inline-block;
   /* position:relative; */
